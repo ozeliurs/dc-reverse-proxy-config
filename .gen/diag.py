@@ -101,7 +101,7 @@ def generate_mermaid_diagram(config_data: dict) -> str:
         else:
             unsecure_count += 1
 
-    diagram.append("```")
+    diagram.append("```\n")
 
     return "\n".join(diagram)
 

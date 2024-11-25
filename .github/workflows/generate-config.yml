@@ -35,7 +35,8 @@ jobs:
       - name: Embed Mermaid Diagram in README.md
         run: |
           mermaid_diagram=$(cat diagram.md)
-          sed -i '/<!-- Mermaid Diagram Start -->/,/<!-- Mermaid Diagram End -->/c\<!-- Mermaid Diagram Start -->\n'"$mermaid_diagram"'\n<!-- Mermaid Diagram End -->' README.md
+          sed -i '/<!-- Mermaid Diagram Start -->/,/<!-- Mermaid Diagram End -->/{//!d;}' README.md
+          sed -i '/<!-- Mermaid Diagram Start -->/r diagram.md' README.md
 
       - name: Commit and push changes
         run: |

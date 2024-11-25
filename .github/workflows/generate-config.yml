@@ -26,21 +26,21 @@ jobs:
 
       - name: Generate Caddyfile
         run: |
-          python reverse-proxy-config/.gen/gen.py reverse-proxy-config/domains.json reverse-proxy-config/Caddyfile
+          python .gen/gen.py domains.json Caddyfile
 
       - name: Generate Mermaid Diagram
         run: |
-          python reverse-proxy-config/.gen/diag.py reverse-proxy-config/domains.json reverse-proxy-config/diagram.md
+          python .gen/diag.py domains.json diagram.md
 
       - name: Embed Mermaid Diagram in README.md
         run: |
-          mermaid_diagram=$(cat reverse-proxy-config/diagram.md)
+          mermaid_diagram=$(cat diagram.md)
           sed -i '/<!-- Mermaid Diagram Start -->/,/<!-- Mermaid Diagram End -->/c\<!-- Mermaid Diagram Start -->\n'"$mermaid_diagram"'\n<!-- Mermaid Diagram End -->' README.md
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add reverse-proxy-config/Caddyfile README.md
+          git add Caddyfile README.md
           git commit -m 'Generate and update Caddyfile and Mermaid diagram'
           git push

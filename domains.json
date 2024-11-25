@@ -1,0 +1,49 @@
+{
+  "domains": {
+    "adakite.ozeliurs.com": {
+      "protocol": "https",
+      "host": "192.168.1.134",
+      "wildcard": true
+    },
+    "ax.oze.li": {
+      "protocol": "https",
+      "host": "192.168.1.31",
+      "wildcard": true
+    },
+    "jellyfin.ozeliurs.com": {
+      "protocol": "http",
+      "host": "192.168.1.69"
+    },
+    "wizarr.ozeliurs.com": {
+      "protocol": "http",
+      "host": "192.168.1.69"
+    },
+    "kavita.ozeliurs.com": {
+      "protocol": "http",
+      "host": "192.168.1.69"
+    },
+    "granite.ozeliurs.com": {
+      "protocol": "https",
+      "host": "192.168.1.169",
+      "port": 8006
+    },
+    "mc.ozeliurs.com": {
+      "protocol": "https",
+      "host": "192.168.1.68",
+      "port": 8443
+    },
+    "obsidian.ozeliurs.com": {
+      "protocol": "http",
+      "host": "192.168.1.126"
+    },
+    "sentry.ozeliurs.com": {
+      "protocol": "http",
+      "host": "192.168.1.196",
+      "port": 9000
+    },
+    "sonar.ozeliurs.com": {
+      "protocol": "https",
+      "host": "192.168.1.25"
+    }
+  }
+}

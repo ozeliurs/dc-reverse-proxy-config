@@ -1,0 +1,111 @@
+{
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+}
+
+adakite.ozeliurs.com, *.adakite.ozeliurs.com {
+    reverse_proxy https://192.168.1.134 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+ax.oze.li, *.ax.oze.li {
+    reverse_proxy https://192.168.1.31 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+jellyfin.ozeliurs.com {
+    reverse_proxy http://192.168.1.69 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}
+
+wizarr.ozeliurs.com {
+    reverse_proxy http://192.168.1.69 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}
+
+kavita.ozeliurs.com {
+    reverse_proxy http://192.168.1.69 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}
+
+granite.ozeliurs.com {
+    reverse_proxy https://192.168.1.169:8006 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+mc.ozeliurs.com {
+    reverse_proxy https://192.168.1.68:8443 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+obsidian.ozeliurs.com {
+    reverse_proxy http://192.168.1.126 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}
+
+sentry.ozeliurs.com {
+    reverse_proxy http://192.168.1.196:9000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}
+
+sonar.ozeliurs.com {
+    reverse_proxy https://192.168.1.25 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}

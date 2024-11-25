@@ -31,7 +31,60 @@ The configuration files are automatically generated and updated using a GitHub A
 Below is the Mermaid diagram visualizing the reverse proxy configuration:
 
 <!-- Mermaid Diagram Start -->
-<!-- Mermaid Diagram End -->
+```mermaid
+graph LR
+    %% Style definitions
+    classDef internet fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef proxy fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef backend fill:#bfb,stroke:#333,stroke-width:2px;
+    classDef secure fill:#9f9,stroke:#333,stroke-width:2px;
+    classDef unsecure fill:#ff9,stroke:#333,stroke-width:2px;
+
+    %% Nodes
+    I[Internet]
+    C[Caddy Server]
+
+    %% Apply styles
+    class I internet
+    class C proxy
+
+    %% Base connections
+    I -->|HTTP & HTTPS| C
+
+    %% Backend groups
+    subgraph Secured[Secured Zone]
+        style Secured fill:#e6ffe6,stroke:#333,stroke-width:2px
+        S0[192.168.1.134]
+        class S0 secure
+        S1[192.168.1.31]
+        class S1 secure
+        S2[192.168.1.169]
+        class S2 secure
+        S3[192.168.1.68]
+        class S3 secure
+        S4[192.168.1.25]
+        class S4 secure
+    end
+
+    subgraph Unsecured[Unsecured Zone]
+        style Unsecured fill:#fff6e6,stroke:#333,stroke-width:2px
+        U0[192.168.1.69]
+        class U0 unsecure
+        U1[192.168.1.126]
+        class U1 unsecure
+        U2[192.168.1.196]
+        class U2 unsecure
+    end
+
+    C -->|HTTPS<br>adakite.ozeliurs.com| S0
+    C -->|HTTPS<br>ax.oze.li| S1
+    C -->|HTTP<br>jellyfin.ozeliurs.com<br>HTTP<br>wizarr.ozeliurs.com<br>HTTP<br>kavita.ozeliurs.com| U0
+    C -->|HTTPS:8006<br>granite.ozeliurs.com| S2
+    C -->|HTTPS:8443<br>mc.ozeliurs.com| S3
+    C -->|HTTP<br>obsidian.ozeliurs.com| U1
+    C -->|HTTP:9000<br>sentry.ozeliurs.com| U2
+    C -->|HTTPS<br>sonar.ozeliurs.com| S4
+```<!-- Mermaid Diagram End -->
 
 ## License
 

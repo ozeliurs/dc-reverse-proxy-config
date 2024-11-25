@@ -17,18 +17,6 @@ adakite.ozeliurs.com, *.adakite.ozeliurs.com {
     }
 }
 
-ax.oze.li, *.ax.oze.li {
-    reverse_proxy https://192.168.1.31 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        transport http {
-            tls_insecure_skip_verify
-        }
-    }
-}
-
 jellyfin.ozeliurs.com {
     reverse_proxy http://192.168.1.69 {
         header_up Host {host}

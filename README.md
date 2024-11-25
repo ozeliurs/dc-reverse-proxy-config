@@ -56,14 +56,12 @@ graph LR
         style Secured fill:#e6ffe6,stroke:#333,stroke-width:2px
         S0[192.168.1.134]
         class S0 secure
-        S1[192.168.1.31]
+        S1[192.168.1.169]
         class S1 secure
-        S2[192.168.1.169]
+        S2[192.168.1.68]
         class S2 secure
-        S3[192.168.1.68]
+        S3[192.168.1.25]
         class S3 secure
-        S4[192.168.1.25]
-        class S4 secure
     end
 
     subgraph Unsecured[Unsecured Zone]
@@ -77,13 +75,12 @@ graph LR
     end
 
     C -->|HTTPS<br>adakite.ozeliurs.com| S0
-    C -->|HTTPS<br>ax.oze.li| S1
     C -->|HTTP<br>jellyfin.ozeliurs.com<br>HTTP<br>wizarr.ozeliurs.com<br>HTTP<br>kavita.ozeliurs.com| U0
-    C -->|HTTPS:8006<br>granite.ozeliurs.com| S2
-    C -->|HTTPS:8443<br>mc.ozeliurs.com| S3
+    C -->|HTTPS:8006<br>granite.ozeliurs.com| S1
+    C -->|HTTPS:8443<br>mc.ozeliurs.com| S2
     C -->|HTTP<br>obsidian.ozeliurs.com| U1
     C -->|HTTP:9000<br>sentry.ozeliurs.com| U2
-    C -->|HTTPS<br>sonar.ozeliurs.com| S4
+    C -->|HTTPS<br>sonar.ozeliurs.com| S3
 ```
 <!-- Mermaid Diagram End -->
 

@@ -1,149 +1,139 @@
 {
-    log {
-        output file /var/log/caddy/access.log
-        format json
-    }
+	log {
+		output file /var/log/caddy/access.log
+		format json
+	}
 }
 
-
 adakite.ozeliurs.com, *.adakite.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy https://192.168.1.134 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-        transport http {
-            tls_insecure_skip_verify
-        }
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy https://192.168.1.134 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 jellyfin.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy http://192.168.1.69 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.69 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+	}
 }
 
 wizarr.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy http://192.168.1.69 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.69 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+	}
 }
 
 kavita.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy http://192.168.1.69 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.69 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+	}
 }
 
 granite.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy https://192.168.1.169:8006 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-        transport http {
-            tls_insecure_skip_verify
-        }
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy https://192.168.1.169:8006 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 mc.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy https://192.168.1.68:8443 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-        transport http {
-            tls_insecure_skip_verify
-        }
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy https://192.168.1.68:8443 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }
 
 obsidian.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy http://192.168.1.126 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.126 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+	}
 }
 
 sentry.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy http://192.168.1.196:9000 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.196:9000 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+	}
 }
 
 sonar.ozeliurs.com {
-    tls {
-        dns cloudflare {env.CF_API_TOKEN}
-        resolvers 1.1.1.1
-    }
-    reverse_proxy https://192.168.1.25 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        
-        transport http {
-            tls_insecure_skip_verify
-        }
-        
-    }
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy https://192.168.1.25 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+		header_up X-Forwarded-For {remote}
+		header_up X-Forwarded-Proto {scheme}
+
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
 }

@@ -3,7 +3,6 @@ FROM caddy:{{ version }}-builder AS builder
 RUN xcaddy build \
 {% for module in modules %}    --with {{ module }}{% if not loop.last %} \{% endif %}
 {% endfor %}
-
 FROM caddy:{{ version }}
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy

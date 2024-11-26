@@ -54,35 +54,53 @@ graph LR
     %% Backend groups
     subgraph Secured[Secured Zone]
         style Secured fill:#e6ffe6,stroke:#333,stroke-width:2px
+        
         S0[192.168.1.134]
         class S0 secure
+        
         S1[192.168.1.169]
         class S1 secure
+        
         S2[192.168.1.68]
         class S2 secure
+        
         S3[192.168.1.25]
         class S3 secure
+        
     end
 
     subgraph Unsecured[Unsecured Zone]
         style Unsecured fill:#fff6e6,stroke:#333,stroke-width:2px
+        
         U0[192.168.1.69]
         class U0 unsecure
+        
         U1[192.168.1.126]
         class U1 unsecure
+        
         U2[192.168.1.196]
         class U2 unsecure
+        
     end
 
-    C -->|HTTPS<br>adakite.ozeliurs.com| S0
-    C -->|HTTP<br>jellyfin.ozeliurs.com<br>HTTP<br>wizarr.ozeliurs.com<br>HTTP<br>kavita.ozeliurs.com| U0
-    C -->|HTTPS:8006<br>granite.ozeliurs.com| S1
-    C -->|HTTPS:8443<br>mc.ozeliurs.com| S2
-    C -->|HTTP<br>obsidian.ozeliurs.com| U1
-    C -->|HTTP:9000<br>sentry.ozeliurs.com| U2
-    C -->|HTTPS<br>sonar.ozeliurs.com| S3
-```
-<!-- Mermaid Diagram End -->
+    %% Connections
+    
+    C -->|{'domain': 'adakite.ozeliurs.com', 'protocol': 'https', 'port': ''}| S0
+    
+    C -->|{'domain': 'granite.ozeliurs.com', 'protocol': 'https', 'port': 8006}| S1
+    
+    C -->|{'domain': 'mc.ozeliurs.com', 'protocol': 'https', 'port': 8443}| S2
+    
+    C -->|{'domain': 'sonar.ozeliurs.com', 'protocol': 'https', 'port': ''}| S3
+    
+    
+    C -->|{'domain': 'jellyfin.ozeliurs.com', 'protocol': 'http', 'port': ''}<br>{'domain': 'wizarr.ozeliurs.com', 'protocol': 'http', 'port': ''}<br>{'domain': 'kavita.ozeliurs.com', 'protocol': 'http', 'port': ''}| U0
+    
+    C -->|{'domain': 'obsidian.ozeliurs.com', 'protocol': 'http', 'port': ''}| U1
+    
+    C -->|{'domain': 'sentry.ozeliurs.com', 'protocol': 'http', 'port': 9000}| U2
+    
+```<!-- Mermaid Diagram End -->
 
 ## License
 

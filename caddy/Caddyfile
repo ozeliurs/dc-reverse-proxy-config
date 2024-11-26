@@ -5,15 +5,18 @@
     }
 }
 
+
 adakite.ozeliurs.com, *.adakite.ozeliurs.com {
     reverse_proxy https://192.168.1.134 {
         header_up Host {host}
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
         transport http {
             tls_insecure_skip_verify
         }
+        
     }
 }
 
@@ -23,6 +26,7 @@ jellyfin.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
     }
 }
 
@@ -32,6 +36,7 @@ wizarr.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
     }
 }
 
@@ -41,6 +46,7 @@ kavita.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
     }
 }
 
@@ -50,9 +56,11 @@ granite.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
         transport http {
             tls_insecure_skip_verify
         }
+        
     }
 }
 
@@ -62,9 +70,11 @@ mc.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
         transport http {
             tls_insecure_skip_verify
         }
+        
     }
 }
 
@@ -74,6 +84,7 @@ obsidian.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
     }
 }
 
@@ -83,6 +94,7 @@ sentry.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
     }
 }
 
@@ -92,8 +104,10 @@ sonar.ozeliurs.com {
         header_up X-Real-IP {remote}
         header_up X-Forwarded-For {remote}
         header_up X-Forwarded-Proto {scheme}
+        
         transport http {
             tls_insecure_skip_verify
         }
+        
     }
 }

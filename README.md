@@ -60,6 +60,8 @@ graph LR
         class S1 secure
         S2[192.168.1.68]
         class S2 secure
+        S3[192.168.1.143]
+        class S3 secure
     end
 
     subgraph Unsecured[Unsecured Zone]
@@ -75,6 +77,7 @@ graph LR
     C -->|HTTPS:8006<br>granite.ozeliurs.com| S1
     C -->|HTTPS:8443<br>mc.ozeliurs.com| S2
     C -->|HTTP<br>obsidian.ozeliurs.com| U1
+    C -->|HTTPS<br>weakspotter.ozeliurs.com| S3
 ```
 <!-- Mermaid Diagram End -->
 

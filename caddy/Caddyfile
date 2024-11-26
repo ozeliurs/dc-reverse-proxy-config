@@ -96,3 +96,18 @@ obsidian.ozeliurs.com {
 		header_up X-Real-IP {remote}
 	}
 }
+
+weakspotter.ozeliurs.com, *.weakspotter.ozeliurs.com {
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy https://192.168.1.143 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+}

@@ -34,7 +34,7 @@ jobs:
 
       - name: Format Caddyfile
         run: |
-          docker run --rm -v $(pwd)/caddy/Caddyfile:/etc/caddy/Caddyfile caddy caddy fmt --config /etc/caddy/Caddyfile --overwrite
+          docker run --rm -v $(pwd)/caddy/Caddyfile:/etc/caddy/Caddyfile caddy caddy fmt --overwrite
 
       - name: Generate Mermaid Diagram
         run: |

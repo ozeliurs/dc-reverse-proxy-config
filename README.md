@@ -85,22 +85,22 @@ graph LR
 
     %% Connections
     
-    C -->|{'domain': 'adakite.ozeliurs.com', 'protocol': 'https', 'port': ''}| S0
+    C -->|{"domain": "adakite.ozeliurs.com", "port": "", "protocol": "https"}<br>| S0
     
-    C -->|{'domain': 'granite.ozeliurs.com', 'protocol': 'https', 'port': 8006}| S1
+    C -->|{"domain": "granite.ozeliurs.com", "port": 8006, "protocol": "https"}<br>| S1
     
-    C -->|{'domain': 'mc.ozeliurs.com', 'protocol': 'https', 'port': 8443}| S2
+    C -->|{"domain": "mc.ozeliurs.com", "port": 8443, "protocol": "https"}<br>| S2
     
-    C -->|{'domain': 'sonar.ozeliurs.com', 'protocol': 'https', 'port': ''}| S3
+    C -->|{"domain": "sonar.ozeliurs.com", "port": "", "protocol": "https"}<br>| S3
     
     
-    C -->|{'domain': 'jellyfin.ozeliurs.com', 'protocol': 'http', 'port': ''}<br>{'domain': 'wizarr.ozeliurs.com', 'protocol': 'http', 'port': ''}<br>{'domain': 'kavita.ozeliurs.com', 'protocol': 'http', 'port': ''}| U0
+    C -->|{"domain": "jellyfin.ozeliurs.com", "port": "", "protocol": "http"}<br>{"domain": "wizarr.ozeliurs.com", "port": "", "protocol": "http"}<br>{"domain": "kavita.ozeliurs.com", "port": "", "protocol": "http"}<br>| U0
     
-    C -->|{'domain': 'obsidian.ozeliurs.com', 'protocol': 'http', 'port': ''}| U1
+    C -->|{"domain": "obsidian.ozeliurs.com", "port": "", "protocol": "http"}<br>| U1
     
-    C -->|{'domain': 'sentry.ozeliurs.com', 'protocol': 'http', 'port': 9000}| U2
+    C -->|{"domain": "sentry.ozeliurs.com", "port": 9000, "protocol": "http"}<br>| U2
     
-```<!-- Mermaid Diagram End -->
+``````<!-- Mermaid Diagram End -->
 
 ## License
 

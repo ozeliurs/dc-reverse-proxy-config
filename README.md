@@ -82,7 +82,7 @@ graph LR
     C -->|HTTP:9000<br>sentry.ozeliurs.com| U2
     C -->|HTTPS<br>sonar.ozeliurs.com| S3
 ```
-``````<!-- Mermaid Diagram End -->
+<!-- Mermaid Diagram End -->
 
 ## License
 

@@ -2,34 +2,26 @@ import argparse
 import json
 from pathlib import Path
 
+from jinja2 import Environment, FileSystemLoader
+
 
 def generate_dockerfile(input_file, output_file):
     # Load the configuration from the JSON file
     with input_file.open("r") as config_file:
         config = json.load(config_file)
 
-    version = config["version"]
-    modules = config["modules"]
+    # Load the Jinja template
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template('Dockerfile.j2')
 
-    # Create the Dockerfile content
-    dockerfile_content = (
-        f"""FROM caddy:{version}-builder AS builder\n\nRUN xcaddy build \\\n"""
-    )
-
-    for i, module in enumerate(modules):
-        if i < len(modules) - 1:
-            dockerfile_content += f"\t--with {module} \\\n"
-        else:
-            dockerfile_content += f"\t--with {module}\n"
-
-    dockerfile_content += f"""\nFROM caddy:{version}\n\nCOPY --from=builder /usr/bin/caddy /usr/bin/caddy\n"""
+    # Render the template with the configuration
+    dockerfile_content = template.render(config)
 
     # Write the Dockerfile content to the Dockerfile
     with output_file.open("w") as dockerfile:
         dockerfile.write(dockerfile_content)
 
     print("Dockerfile has been generated successfully.")
-
 
 def main():
     parser = argparse.ArgumentParser(
@@ -43,7 +35,6 @@ def main():
     args = parser.parse_args()
 
     generate_dockerfile(args.input, args.output)
-
 
 if __name__ == "__main__":
     main()

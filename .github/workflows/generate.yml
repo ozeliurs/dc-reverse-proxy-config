@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install argparse
+          pip install argparse jinja2
 
       - name: Generate Caddyfile
         run: |

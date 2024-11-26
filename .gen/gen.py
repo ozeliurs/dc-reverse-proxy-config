@@ -1,69 +1,16 @@
 import argparse
 import json
-from typing import Any, Dict
+
+from jinja2 import Environment, FileSystemLoader
 
 
-def generate_reverse_proxy_block(domain: str, backend: Dict[str, Any]) -> str:
-    """Generate a reverse proxy block for a single domain."""
+def generate_caddy_config(config_data):
+    # Load the Jinja template
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template('Caddyfile.j2')
 
-    # Extract backend details with defaults
-    protocol = backend.get("protocol", "http")
-    host = backend.get("host", "localhost")
-    port = f":{backend.get('port', '')}" if backend.get("port") else ""
-    wildcard = backend.get("wildcard", False)
-
-    # Build the domain string (add wildcard if requested)
-    domain_str = f"{domain}, *.{domain}" if wildcard else domain
-
-    # Determine if we need TLS skip verify
-    needs_tls_skip = protocol == "https"
-
-    # Build the reverse proxy configuration
-    config = [
-        f"{domain_str} {{",
-        f"    reverse_proxy {protocol}://{host}{port} {{",
-        "        header_up Host {host}",
-        "        header_up X-Real-IP {remote}",
-        "        header_up X-Forwarded-For {remote}",
-        "        header_up X-Forwarded-Proto {scheme}",
-    ]
-
-    # Add TLS skip verify if needed
-    if needs_tls_skip:
-        config.extend(
-            [
-                "        transport http {",
-                "            tls_insecure_skip_verify",
-                "        }",
-            ]
-        )
-
-    config.extend(["    }", "}"])
-
-    return "\n".join(config)
-
-
-def generate_caddy_config(config_data: Dict) -> str:
-    """Generate the complete Caddy configuration."""
-
-    # Start with the global configuration
-    config_blocks = [
-        "{",
-        "    log {",
-        "        output file /var/log/caddy/access.log",
-        "        format json",
-        "    }",
-        "}",
-        "",  # Empty line for separation
-    ]
-
-    # Generate blocks for each domain
-    for domain, backend in config_data.get("domains", {}).items():
-        config_blocks.append(generate_reverse_proxy_block(domain, backend))
-        config_blocks.append("")  # Empty line between blocks
-
-    return "\n".join(config_blocks)
-
+    # Render the template with the configuration
+    return template.render(config_data)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -94,7 +41,6 @@ def main():
         print(f"Caddyfile generated successfully at {args.output_file}!")
     except Exception as e:
         print(f"Error writing Caddyfile: {e}")
-
 
 if __name__ == "__main__":
     main()

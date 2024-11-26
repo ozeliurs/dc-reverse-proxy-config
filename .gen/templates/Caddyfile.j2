@@ -1,0 +1,22 @@
+{
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+}
+
+{% for domain, backend in domains.items() %}
+{{ domain }}{% if backend.wildcard %}, *.{{ domain }}{% endif %} {
+    reverse_proxy {{ backend.protocol }}://{{ backend.host }}{% if backend.port %}:{{ backend.port }}{% endif %} {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+        {% if backend.protocol == "https" %}
+        transport http {
+            tls_insecure_skip_verify
+        }
+        {% endif %}
+    }
+}
+{% endfor %}

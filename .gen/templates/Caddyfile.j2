@@ -5,12 +5,12 @@
     }
 }
 
-tls {
-	dns cloudflare {env.CF_API_TOKEN}
-}
-
 {% for domain, backend in domains.items() %}
 {{ domain }}{% if backend.wildcard %}, *.{{ domain }}{% endif %} {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy {{ backend.protocol }}://{{ backend.host }}{% if backend.port %}:{{ backend.port }}{% endif %} {
         header_up Host {host}
         header_up X-Real-IP {remote}

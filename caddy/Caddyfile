@@ -5,12 +5,12 @@
     }
 }
 
-tls {
-	dns cloudflare {env.CF_API_TOKEN}
-}
-
 
 adakite.ozeliurs.com, *.adakite.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy https://192.168.1.134 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -25,6 +25,10 @@ adakite.ozeliurs.com, *.adakite.ozeliurs.com {
 }
 
 jellyfin.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy http://192.168.1.69 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -35,6 +39,10 @@ jellyfin.ozeliurs.com {
 }
 
 wizarr.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy http://192.168.1.69 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -45,6 +53,10 @@ wizarr.ozeliurs.com {
 }
 
 kavita.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy http://192.168.1.69 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -55,6 +67,10 @@ kavita.ozeliurs.com {
 }
 
 granite.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy https://192.168.1.169:8006 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -69,6 +85,10 @@ granite.ozeliurs.com {
 }
 
 mc.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy https://192.168.1.68:8443 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -83,6 +103,10 @@ mc.ozeliurs.com {
 }
 
 obsidian.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy http://192.168.1.126 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -93,6 +117,10 @@ obsidian.ozeliurs.com {
 }
 
 sentry.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy http://192.168.1.196:9000 {
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -103,6 +131,10 @@ sentry.ozeliurs.com {
 }
 
 sonar.ozeliurs.com {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
     reverse_proxy https://192.168.1.25 {
         header_up Host {host}
         header_up X-Real-IP {remote}

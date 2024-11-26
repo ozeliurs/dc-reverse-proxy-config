@@ -1,13 +1,16 @@
 import argparse
 import json
+from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
 
 def generate_caddy_config(config_data):
     # Load the Jinja template
-    env = Environment(loader=FileSystemLoader("."))
-    template = env.get_template("templates/Caddyfile.j2")
+    env = Environment(
+        loader=FileSystemLoader(Path(__file__).resolve().parent / "templates")
+    )
+    template = env.get_template("Caddyfile.j2")
 
     # Render the template with the configuration
     return template.render(config_data)

@@ -11,8 +11,10 @@ def generate_dockerfile(input_file, output_file):
         config = json.load(config_file)
 
     # Load the Jinja template
-    env = Environment(loader=FileSystemLoader("."))
-    template = env.get_template("templates/Dockerfile.j2")
+    env = Environment(
+        loader=FileSystemLoader(Path(__file__).resolve().parent / "templates")
+    )
+    template = env.get_template("Dockerfile.j2")
 
     # Render the template with the configuration
     dockerfile_content = template.render(config)

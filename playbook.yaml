@@ -1,44 +1,58 @@
 ---
-- name: Build Docker image for Caddy server with plugins
-  hosts: localhost
-  vars:
-    caddy_version: "latest"
-    plugins:
-      - "github.com/caddyserver/ntlm-transport"
-      # Add more plugins as needed
+- name: Deploy Caddy using Docker and set up cron job for updates
+  hosts: reverse-proxy
+  become: true
   tasks:
-    - name: Ensure Go is installed
+    - name: Update apt package index
       apt:
-        name: golang
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - git
+          - curl
+          - cron
         state: present
-      become: yes
 
-    - name: Install xcaddy
-      command: "go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest"
-      environment:
-        GOPATH: "{{ ansible_env.HOME }}/go"
-      changed_when: false
+    - name: Clone the dc-reverse-proxy-config repository
+      git:
+        repo: https://github.com/ozeliurs/dc-reverse-proxy-config.git
+        dest: /opt/dc-reverse-proxy-config
+        update: yes
 
-    - name: Create Dockerfile
-      copy:
-        dest: ./Dockerfile
-        content: |
-          FROM caddy:{{ caddy_version }}-builder AS builder
-
-          RUN xcaddy build \
-          {% for plugin in plugins %}
-            --with {{ plugin }} \
-          {% endfor %}
-
-          FROM caddy:{{ caddy_version }}
-          COPY --from=builder /usr/bin/caddy /usr/bin/caddy
-
-    - name: Build Docker image
-      command: docker build -t custom-caddy:latest .
+    - name: Install Docker
+      shell: curl -fsSL https://get.docker.com | sh -
       args:
-        chdir: .
+        creates: /usr/bin/docker
 
-    - name: Clean up Dockerfile
-      file:
-        path: ./Dockerfile
-        state: absent
+    - name: Copy .env file to the target server
+      copy:
+        src: ./.env
+        dest: /opt/dc-reverse-proxy-config/caddy/.env
+        mode: "0644"
+
+    - name: Start Docker Compose
+      shell: docker compose -f /opt/dc-reverse-proxy-config/caddy/docker-compose.yaml up -d
+
+    - name: Create update script
+      copy:
+        dest: /usr/local/bin/update_caddy.sh
+        content: |
+          #!/bin/bash
+          cd /opt/dc-reverse-proxy-config
+          git remote update
+          if ! git status -uno | grep -q 'Your branch is up to date'; then
+            git pull
+            cd caddy
+            docker compose down
+            docker compose up -d
+          fi
+        mode: "0755"
+
+    - name: Add cron job to check for updates every minute
+      cron:
+        name: "Check for updates and restart Caddy if necessary"
+        minute: "*"
+        hour: "*"
+        job: "/usr/local/bin/update_caddy.sh"

@@ -1,9 +1,12 @@
-name: Generate and Push Caddyfile and Mermaid Diagram
+name: Generate and Push Configurations
 
 on:
   push:
     branches:
       - main
+    paths:
+      - "domains.json"
+      - "config.json"
   workflow_dispatch:
 
 permissions:
@@ -30,7 +33,7 @@ jobs:
 
       - name: Generate Caddyfile
         run: |
-          python .gen/gen.py domains.json Caddyfile
+          python .gen/gen.py domains.json caddy/Caddyfile
 
       - name: Generate Mermaid Diagram
         run: |
@@ -42,10 +45,14 @@ jobs:
           sed -i '/<!-- Mermaid Diagram Start -->/,/<!-- Mermaid Diagram End -->/{//!d;}' README.md
           sed -i '/<!-- Mermaid Diagram Start -->/r diagram.md' README.md
 
+      - name: Generate Dockerfile
+        run: |
+          python .gen/caddygen.py config.json caddy/Dockerfile
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add Caddyfile README.md
-          git commit -m 'Generate and update Caddyfile and Mermaid diagram'
+          git add caddy/Caddyfile README.md caddy/Dockerfile
+          git commit -m 'Generate and update Caddyfile, Mermaid diagram, and Dockerfile'
           git push

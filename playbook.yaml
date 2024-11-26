@@ -1,0 +1,44 @@
+---
+- name: Build Docker image for Caddy server with plugins
+  hosts: localhost
+  vars:
+    caddy_version: "latest"
+    plugins:
+      - "github.com/caddyserver/ntlm-transport"
+      # Add more plugins as needed
+  tasks:
+    - name: Ensure Go is installed
+      apt:
+        name: golang
+        state: present
+      become: yes
+
+    - name: Install xcaddy
+      command: "go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest"
+      environment:
+        GOPATH: "{{ ansible_env.HOME }}/go"
+      changed_when: false
+
+    - name: Create Dockerfile
+      copy:
+        dest: ./Dockerfile
+        content: |
+          FROM caddy:{{ caddy_version }}-builder AS builder
+
+          RUN xcaddy build \
+          {% for plugin in plugins %}
+            --with {{ plugin }} \
+          {% endfor %}
+
+          FROM caddy:{{ caddy_version }}
+          COPY --from=builder /usr/bin/caddy /usr/bin/caddy
+
+    - name: Build Docker image
+      command: docker build -t custom-caddy:latest .
+      args:
+        chdir: .
+
+    - name: Clean up Dockerfile
+      file:
+        path: ./Dockerfile
+        state: absent

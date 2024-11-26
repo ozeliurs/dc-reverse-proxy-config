@@ -5,6 +5,10 @@
     }
 }
 
+tls {
+	dns cloudflare {env.CF_API_TOKEN}
+}
+
 {% for domain, backend in domains.items() %}
 {{ domain }}{% if backend.wildcard %}, *.{{ domain }}{% endif %} {
     reverse_proxy {{ backend.protocol }}://{{ backend.host }}{% if backend.port %}:{{ backend.port }}{% endif %} {

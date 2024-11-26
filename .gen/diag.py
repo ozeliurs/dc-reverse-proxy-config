@@ -1,7 +1,6 @@
 import argparse
 import json
 from collections import defaultdict
-from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -35,9 +34,7 @@ def generate_mermaid_diagram(config_data: dict) -> str:
     }
 
     # Load the Jinja template
-    env = Environment(
-        loader=FileSystemLoader(Path(__file__).resolve().parent / "templates")
-    )
+    env = Environment(loader=FileSystemLoader("."))
     template = env.get_template("mermaid.j2")
 
     # Render the template with the configuration

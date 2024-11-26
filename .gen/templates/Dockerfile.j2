@@ -1,8 +1,7 @@
 FROM caddy:{{ version }}-builder AS builder
 
 RUN xcaddy build \
-{% for module in modules %}
-    --with {{ module }}{% if not loop.last %} \{% endif %}
+{% for module in modules %}    --with {{ module }}{% if not loop.last %} \{% endif %}
 {% endfor %}
 
 FROM caddy:{{ version }}

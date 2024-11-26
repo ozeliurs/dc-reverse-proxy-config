@@ -6,6 +6,7 @@
 	servers {
 		metrics
 	}
+	admin :2019
 }
 
 adakite.ozeliurs.com, *.adakite.ozeliurs.com {

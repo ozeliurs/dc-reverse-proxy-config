@@ -32,6 +32,10 @@ jobs:
         run: |
           python .gen/gen.py domains.json caddy/Caddyfile
 
+      - name: Format Caddyfile
+        run: |
+          docker run --rm -v $(pwd)/caddy:/etc/caddy caddy caddy fmt --overwrite
+
       - name: Generate Mermaid Diagram
         run: |
           python .gen/diag.py domains.json diagram.md

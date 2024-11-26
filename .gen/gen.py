@@ -6,11 +6,12 @@ from jinja2 import Environment, FileSystemLoader
 
 def generate_caddy_config(config_data):
     # Load the Jinja template
-    env = Environment(loader=FileSystemLoader('.'))
-    template = env.get_template('Caddyfile.j2')
+    env = Environment(loader=FileSystemLoader("."))
+    template = env.get_template("templates/Caddyfile.j2")
 
     # Render the template with the configuration
     return template.render(config_data)
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -41,6 +42,7 @@ def main():
         print(f"Caddyfile generated successfully at {args.output_file}!")
     except Exception as e:
         print(f"Error writing Caddyfile: {e}")
+
 
 if __name__ == "__main__":
     main()

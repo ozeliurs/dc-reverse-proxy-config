@@ -11,8 +11,8 @@ def generate_dockerfile(input_file, output_file):
         config = json.load(config_file)
 
     # Load the Jinja template
-    env = Environment(loader=FileSystemLoader('.'))
-    template = env.get_template('Dockerfile.j2')
+    env = Environment(loader=FileSystemLoader("."))
+    template = env.get_template("templates/Dockerfile.j2")
 
     # Render the template with the configuration
     dockerfile_content = template.render(config)
@@ -22,6 +22,7 @@ def generate_dockerfile(input_file, output_file):
         dockerfile.write(dockerfile_content)
 
     print("Dockerfile has been generated successfully.")
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -35,6 +36,7 @@ def main():
     args = parser.parse_args()
 
     generate_dockerfile(args.input, args.output)
+
 
 if __name__ == "__main__":
     main()

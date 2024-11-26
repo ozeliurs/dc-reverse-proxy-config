@@ -9,6 +9,7 @@ def is_backend_secure(domains) -> bool:
     """Check if a backend only has HTTPS connections"""
     return all(d["protocol"].lower() == "https" for d in domains)
 
+
 def generate_mermaid_diagram(config_data: dict) -> str:
     """Generate a Mermaid network diagram from the configuration."""
 
@@ -21,15 +22,26 @@ def generate_mermaid_diagram(config_data: dict) -> str:
         backends[host].append({"domain": domain, "protocol": protocol, "port": port})
 
     # Separate secured and unsecured backends
-    secured_backends = {backend: domains for backend, domains in backends.items() if is_backend_secure(domains)}
-    unsecured_backends = {backend: domains for backend, domains in backends.items() if not is_backend_secure(domains)}
+    secured_backends = {
+        backend: domains
+        for backend, domains in backends.items()
+        if is_backend_secure(domains)
+    }
+    unsecured_backends = {
+        backend: domains
+        for backend, domains in backends.items()
+        if not is_backend_secure(domains)
+    }
 
     # Load the Jinja template
-    env = Environment(loader=FileSystemLoader('.'))
-    template = env.get_template('mermaid.j2')
+    env = Environment(loader=FileSystemLoader("."))
+    template = env.get_template("templates/mermaid.j2")
 
     # Render the template with the configuration
-    return template.render(secured_backends=secured_backends, unsecured_backends=unsecured_backends)
+    return template.render(
+        secured_backends=secured_backends, unsecured_backends=unsecured_backends
+    )
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -60,6 +72,7 @@ def main():
         print("Network diagram generated successfully!")
     except Exception as e:
         print(f"Error writing network diagram: {e}")
+
 
 if __name__ == "__main__":
     main()

@@ -37,9 +37,9 @@ graph LR
 
     %% Connections
     {% for backend, domains in secured_backends.items() %}
-    C -->|{{ domains | join('<br>') }}| S{{ loop.index0 }}
+    C -->|{% for domain in domains %}{{ domain | tojson }}<br>{% endfor %}| S{{ loop.index0 }}
     {% endfor %}
     {% for backend, domains in unsecured_backends.items() %}
-    C -->|{{ domains | join('<br>') }}| U{{ loop.index0 }}
+    C -->|{% for domain in domains %}{{ domain | tojson }}<br>{% endfor %}| U{{ loop.index0 }}
     {% endfor %}
 ```

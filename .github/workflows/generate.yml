@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "domains.json"
-      - "config.json"
   workflow_dispatch:
 
 permissions:

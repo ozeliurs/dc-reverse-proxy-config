@@ -46,10 +46,17 @@ jobs:
         run: |
           python .gen/caddygen.py config.json caddy/Dockerfile
 
-      - name: Commit and push changes
+      - name: Check for changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add caddy/Caddyfile README.md caddy/Dockerfile
+          if git diff-index --quiet HEAD; then
+            echo "No changes detected, stopping CI."
+            exit 0
+          fi
+
+      - name: Commit and push changes
+        run: |
           git commit -m 'Generate and update Caddyfile, Mermaid diagram, and Dockerfile'
           git push

@@ -36,17 +36,17 @@
       "host": "192.168.1.143",
       "wildcard": true
     },
-    "kibana.apoo.ozeliurs.com": {
+    "kibana.main.kubernetes.ozeliurs.com": {
       "protocol": "http",
       "host": "192.168.1.199",
       "port": 5601
     },
-    "elastic.apoo.ozeliurs.com": {
+    "elastic.main.kubernetes.ozeliurs.com": {
       "protocol": "http",
       "host": "192.168.1.199",
       "port": 9200
     },
-    "fleet.apoo.ozeliurs.com": {
+    "fleet.main.kubernetes.ozeliurs.com": {
       "protocol": "http",
       "host": "192.168.1.199",
       "port": 8220

@@ -112,3 +112,36 @@ weakspotter.ozeliurs.com, *.weakspotter.ozeliurs.com {
 		}
 	}
 }
+
+kibana.apoo.ozeliurs.com {
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.199:5601 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+	}
+}
+
+elastic.apoo.ozeliurs.com {
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.199:9200 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+	}
+}
+
+fleet.apoo.ozeliurs.com {
+	tls {
+		dns cloudflare {env.CF_API_TOKEN}
+		resolvers 1.1.1.1
+	}
+	reverse_proxy http://192.168.1.199:8220 {
+		header_up Host {host}
+		header_up X-Real-IP {remote}
+	}
+}

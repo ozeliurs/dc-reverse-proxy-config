@@ -80,7 +80,7 @@ graph LR
     C -->|HTTPS:8443<br>mc.ozeliurs.com| S2
     C -->|HTTP<br>obsidian.ozeliurs.com| U1
     C -->|HTTPS<br>weakspotter.ozeliurs.com| S3
-    C -->|HTTP:5601<br>kibana.apoo.ozeliurs.com<br>HTTP:9200<br>elastic.apoo.ozeliurs.com<br>HTTP:8220<br>fleet.apoo.ozeliurs.com| U2
+    C -->|HTTP:5601<br>kibana.main.kubernetes.ozeliurs.com<br>HTTP:9200<br>elastic.main.kubernetes.ozeliurs.com<br>HTTP:8220<br>fleet.main.kubernetes.ozeliurs.com| U2
 ```
 <!-- Mermaid Diagram End -->
 

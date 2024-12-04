@@ -113,7 +113,7 @@ weakspotter.ozeliurs.com, *.weakspotter.ozeliurs.com {
 	}
 }
 
-kibana.apoo.ozeliurs.com {
+kibana.main.kubernetes.ozeliurs.com {
 	tls {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
@@ -124,7 +124,7 @@ kibana.apoo.ozeliurs.com {
 	}
 }
 
-elastic.apoo.ozeliurs.com {
+elastic.main.kubernetes.ozeliurs.com {
 	tls {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
@@ -135,7 +135,7 @@ elastic.apoo.ozeliurs.com {
 	}
 }
 
-fleet.apoo.ozeliurs.com {
+fleet.main.kubernetes.ozeliurs.com {
 	tls {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1

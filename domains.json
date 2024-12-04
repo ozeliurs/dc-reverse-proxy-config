@@ -50,6 +50,10 @@
       "protocol": "http",
       "host": "192.168.1.199",
       "port": 8220
+    },
+    "argocd.tsukoyacki.ovh": {
+      "protocol": "https",
+      "host": "192.168.1.14"
     }
   }
 }

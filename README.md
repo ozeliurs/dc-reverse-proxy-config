@@ -62,6 +62,8 @@ graph LR
         class S2 secure
         S3[192.168.1.143]
         class S3 secure
+        S4[192.168.1.14]
+        class S4 secure
     end
 
     subgraph Unsecured[Unsecured Zone]
@@ -72,8 +74,6 @@ graph LR
         class U1 unsecure
         U2[192.168.1.199]
         class U2 unsecure
-        U3[192.168.1.14]
-        class U3 unsecure
     end
 
     C -->|HTTPS<br>adakite.ozeliurs.com| S0
@@ -83,7 +83,7 @@ graph LR
     C -->|HTTP<br>obsidian.ozeliurs.com| U1
     C -->|HTTPS<br>weakspotter.ozeliurs.com| S3
     C -->|HTTP:5601<br>kibana.main.kubernetes.ozeliurs.com<br>HTTP:9200<br>elastic.main.kubernetes.ozeliurs.com<br>HTTP:8220<br>fleet.main.kubernetes.ozeliurs.com| U2
-    C -->|HTTP<br>grafana.tsukoyachi.ovh| U3
+    C -->|HTTPS<br>grafana.tsukoyachi.ovh| S4
 ```
 <!-- Mermaid Diagram End -->
 

@@ -146,7 +146,7 @@ fleet.main.kubernetes.ozeliurs.com {
 	}
 }
 
-grafana.tsukoyacki.ovh {
+grafana.tsukoyachi.ovh {
 	tls {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1

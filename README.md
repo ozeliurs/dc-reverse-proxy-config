@@ -83,7 +83,7 @@ graph LR
     C -->|HTTP<br>obsidian.ozeliurs.com| U1
     C -->|HTTPS<br>weakspotter.ozeliurs.com| S3
     C -->|HTTP:5601<br>kibana.main.kubernetes.ozeliurs.com<br>HTTP:9200<br>elastic.main.kubernetes.ozeliurs.com<br>HTTP:8220<br>fleet.main.kubernetes.ozeliurs.com| U2
-    C -->|HTTPS<br>argocd.tsukoyacki.ovh| S4
+    C -->|HTTPS<br>grafana.tsukoyacki.ovh| S4
 ```
 <!-- Mermaid Diagram End -->
 

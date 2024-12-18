@@ -52,7 +52,7 @@
       "port": 8220
     },
     "grafana.tsukoyachi.ovh": {
-      "protocol": "https",
+      "protocol": "http",
       "host": "192.168.1.14"
     }
   }

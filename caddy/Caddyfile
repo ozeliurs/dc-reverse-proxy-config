@@ -145,18 +145,3 @@ fleet.main.kubernetes.ozeliurs.com {
 		header_up X-Real-IP {remote}
 	}
 }
-
-grafana.tsukoyachi.ovh {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.14 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}

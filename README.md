@@ -75,7 +75,7 @@ graph LR
     end
 
     C -->|HTTPS<br>adakite.ozeliurs.com| S0
-    C -->|HTTPS<br>jellyfin.ozeliurs.com<br>HTTPS<br>jellyseer.ozeliurs.com<br>HTTPS<br>wizarr.ozeliurs.com<br>HTTPS<br>kavita.ozeliurs.com| S1
+    C -->|HTTPS<br>jellyfin.ozeliurs.com<br>HTTPS<br>jellyseerr.ozeliurs.com<br>HTTPS<br>wizarr.ozeliurs.com<br>HTTPS<br>kavita.ozeliurs.com| S1
     C -->|HTTPS:8006<br>granite.ozeliurs.com| S2
     C -->|HTTPS:8443<br>mc.ozeliurs.com| S3
     C -->|HTTP<br>obsidian.ozeliurs.com| U0

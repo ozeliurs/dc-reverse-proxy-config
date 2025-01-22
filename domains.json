@@ -6,15 +6,19 @@
       "wildcard": true
     },
     "jellyfin.ozeliurs.com": {
-      "protocol": "http",
+      "protocol": "https",
+      "host": "192.168.1.69"
+    },
+    "jellyseer.ozeliurs.com": {
+      "protocol": "https",
       "host": "192.168.1.69"
     },
     "wizarr.ozeliurs.com": {
-      "protocol": "http",
+      "protocol": "https",
       "host": "192.168.1.69"
     },
     "kavita.ozeliurs.com": {
-      "protocol": "http",
+      "protocol": "https",
       "host": "192.168.1.69"
     },
     "granite.ozeliurs.com": {

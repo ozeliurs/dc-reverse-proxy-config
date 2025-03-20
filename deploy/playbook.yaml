@@ -1,14 +1,7 @@
 ---
-- name: Setup Keepalived for failover and deploy Caddy using Docker
+- name: Deploy Caddy using Docker
   hosts: all
   become: true
-  vars:
-    vip: "192.168.1.250"
-    interface: "eth0"
-    primary_node: "192.168.1.251"
-    backup_node: "192.168.1.252"
-    priority_master: 200
-    priority_backup: 100
 
   tasks:
     - name: Update apt package index
@@ -18,18 +11,10 @@
     - name: Install required packages
       apt:
         name:
-          - keepalived
           - git
           - curl
           - cron
         state: present
-
-    - name: Configure Keepalived
-      template:
-        src: keepalived.conf.j2
-        dest: /etc/keepalived/keepalived.conf
-        mode: "0644"
-      notify: restart keepalived
 
     - name: Clone the dc-reverse-proxy-config repository
       git:
@@ -72,9 +57,3 @@
         minute: "*"
         hour: "*"
         job: "/usr/local/bin/update_caddy.sh"
-
-  handlers:
-    - name: restart keepalived
-      service:
-        name: keepalived
-        state: restarted

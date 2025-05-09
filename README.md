@@ -76,6 +76,8 @@ graph LR
         class U1 unsecure
         U2[192.168.1.11]
         class U2 unsecure
+        U3[192.168.1.22]
+        class U3 unsecure
     end
 
     C -->|HTTPS<br>adakite.ozeliurs.com| S0
@@ -87,6 +89,7 @@ graph LR
     C -->|HTTP:5601<br>kibana.main.kubernetes.ozeliurs.com<br>HTTP:9200<br>elastic.main.kubernetes.ozeliurs.com<br>HTTP:8220<br>fleet.main.kubernetes.ozeliurs.com| U1
     C -->|HTTPS:8006<br>enee.mpve.ozeliurs.com| S5
     C -->|HTTP:80<br>coder.ozeliurs.com| U2
+    C -->|HTTP:80<br>misp.ozeliurs.com| U3
 ```
 <!-- Mermaid Diagram End -->
 

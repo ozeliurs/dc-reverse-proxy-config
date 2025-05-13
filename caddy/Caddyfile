@@ -193,7 +193,7 @@ coder.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy http://192.168.1.11:80 {
+	reverse_proxy http://192.168.1.11 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 	}
@@ -204,12 +204,8 @@ misp.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.22:443 {
+	reverse_proxy http://192.168.1.22 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
 	}
 }

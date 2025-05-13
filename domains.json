@@ -63,12 +63,10 @@
     "coder.ozeliurs.com": {
       "protocol": "http",
       "host": "192.168.1.11",
-      "port": 80
     },
     "misp.ozeliurs.com": {
-      "protocol": "https",
-      "host": "192.168.1.22",
-      "port": 443
+      "protocol": "http",
+      "host": "192.168.1.22"
     }
   }
 }

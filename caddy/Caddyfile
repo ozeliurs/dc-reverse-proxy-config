@@ -29,7 +29,7 @@ jellyfin.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.69 {
+	reverse_proxy https://192.168.1.68 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -44,7 +44,7 @@ jellyseerr.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.69 {
+	reverse_proxy https://192.168.1.68 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -59,7 +59,7 @@ wizarr.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.69 {
+	reverse_proxy https://192.168.1.68 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -74,7 +74,7 @@ kavita.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.69 {
+	reverse_proxy https://192.168.1.68 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -104,7 +104,7 @@ mc.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.68:8443 {
+	reverse_proxy https://192.168.1.69:8443 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -137,39 +137,6 @@ weakspotter.ozeliurs.com, *.weakspotter.ozeliurs.com {
 		transport http {
 			tls_insecure_skip_verify
 		}
-	}
-}
-
-kibana.main.kubernetes.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy http://192.168.1.199:5601 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-	}
-}
-
-elastic.main.kubernetes.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy http://192.168.1.199:9200 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-	}
-}
-
-fleet.main.kubernetes.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy http://192.168.1.199:8220 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
 	}
 }
 

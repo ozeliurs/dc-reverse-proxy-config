@@ -29,7 +29,7 @@ jellyfin.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.68 {
+	reverse_proxy https://192.168.1.69 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -44,7 +44,7 @@ jellyseerr.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.68 {
+	reverse_proxy https://192.168.1.69 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -59,7 +59,7 @@ wizarr.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.68 {
+	reverse_proxy https://192.168.1.69 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -74,7 +74,7 @@ kavita.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.68 {
+	reverse_proxy https://192.168.1.69 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -104,7 +104,7 @@ mc.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.69:8443 {
+	reverse_proxy https://192.168.1.68:8443 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 

@@ -7,19 +7,19 @@
     },
     "jellyfin.ozeliurs.com": {
       "protocol": "https",
-      "host": "192.168.1.68"
+      "host": "192.168.1.69"
     },
     "jellyseerr.ozeliurs.com": {
       "protocol": "https",
-      "host": "192.168.1.68"
+      "host": "192.168.1.69"
     },
     "wizarr.ozeliurs.com": {
       "protocol": "https",
-      "host": "192.168.1.68"
+      "host": "192.168.1.69"
     },
     "kavita.ozeliurs.com": {
       "protocol": "https",
-      "host": "192.168.1.68"
+      "host": "192.168.1.69"
     },
     "granite.ozeliurs.com": {
       "protocol": "https",
@@ -28,7 +28,7 @@
     },
     "mc.ozeliurs.com": {
       "protocol": "https",
-      "host": "192.168.1.69",
+      "host": "192.168.1.68",
       "port": 8443
     },
     "obsidian.ozeliurs.com": {

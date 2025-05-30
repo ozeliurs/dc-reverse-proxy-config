@@ -74,6 +74,8 @@ graph LR
         class U0 unsecure
         U1[192.168.1.11]
         class U1 unsecure
+        U2[192.168.1.20]
+        class U2 unsecure
     end
 
     C -->|HTTPS<br>adakite.ozeliurs.com| S0
@@ -84,6 +86,7 @@ graph LR
     C -->|HTTPS<br>weakspotter.ozeliurs.com| S4
     C -->|HTTPS:8006<br>enee.mpve.ozeliurs.com| S5
     C -->|HTTP<br>coder.ozeliurs.com| U1
+    C -->|HTTP:8000<br>bugsink.ozeliurs.com| U2
 ```
 <!-- Mermaid Diagram End -->
 

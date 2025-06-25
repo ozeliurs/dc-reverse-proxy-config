@@ -23,7 +23,7 @@
     },
     "granite.ozeliurs.com": {
       "protocol": "https",
-      "host": "192.168.1.169",
+      "host": "192.168.1.70",
       "port": 8006
     },
     "mc.ozeliurs.com": {

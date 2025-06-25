@@ -58,7 +58,7 @@ graph LR
         class S0 secure
         S1[192.168.1.69]
         class S1 secure
-        S2[192.168.1.169]
+        S2[192.168.1.70]
         class S2 secure
         S3[192.168.1.68]
         class S3 secure

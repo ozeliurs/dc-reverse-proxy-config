@@ -89,7 +89,7 @@ granite.ozeliurs.com {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
-	reverse_proxy https://192.168.1.169:8006 {
+	reverse_proxy https://192.168.1.70:8006 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 

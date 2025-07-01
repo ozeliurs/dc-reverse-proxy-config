@@ -56,11 +56,11 @@ graph LR
         style Secured fill:#e6ffe6,stroke:#333,stroke-width:2px
         S0[192.168.1.134]
         class S0 secure
-        S1[192.168.1.69]
+        S1[192.168.1.68]
         class S1 secure
         S2[192.168.1.70]
         class S2 secure
-        S3[192.168.1.68]
+        S3[192.168.1.69]
         class S3 secure
         S4[192.168.1.143]
         class S4 secure

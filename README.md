@@ -56,16 +56,14 @@ graph LR
         style Secured fill:#e6ffe6,stroke:#333,stroke-width:2px
         S0[192.168.1.134]
         class S0 secure
-        S1[192.168.1.68]
+        S1[192.168.1.70]
         class S1 secure
-        S2[192.168.1.70]
+        S2[192.168.1.69]
         class S2 secure
-        S3[192.168.1.69]
+        S3[192.168.1.143]
         class S3 secure
-        S4[192.168.1.143]
+        S4[192.168.1.172]
         class S4 secure
-        S5[192.168.1.172]
-        class S5 secure
     end
 
     subgraph Unsecured[Unsecured Zone]
@@ -79,12 +77,11 @@ graph LR
     end
 
     C -->|HTTPS<br>adakite.ozeliurs.com| S0
-    C -->|HTTPS<br>jellyfin.ozeliurs.com<br>HTTPS<br>jellyseerr.ozeliurs.com<br>HTTPS<br>wizarr.ozeliurs.com<br>HTTPS<br>kavita.ozeliurs.com| S1
-    C -->|HTTPS:8006<br>granite.ozeliurs.com| S2
-    C -->|HTTPS:8443<br>mc.ozeliurs.com| S3
+    C -->|HTTPS:8006<br>granite.ozeliurs.com| S1
+    C -->|HTTPS:8443<br>mc.ozeliurs.com| S2
     C -->|HTTP<br>obsidian.ozeliurs.com| U0
-    C -->|HTTPS<br>weakspotter.ozeliurs.com| S4
-    C -->|HTTPS:8006<br>enee.mpve.ozeliurs.com| S5
+    C -->|HTTPS<br>weakspotter.ozeliurs.com| S3
+    C -->|HTTPS:8006<br>enee.mpve.ozeliurs.com| S4
     C -->|HTTP<br>coder.ozeliurs.com| U1
     C -->|HTTP:8000<br>bugsink.ozeliurs.com| U2
 ```

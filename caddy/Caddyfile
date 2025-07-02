@@ -24,66 +24,6 @@ adakite.ozeliurs.com, *.adakite.ozeliurs.com {
 	}
 }
 
-jellyfin.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.68 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}
-
-jellyseerr.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.68 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}
-
-wizarr.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.68 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}
-
-kavita.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.68 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}
-
 granite.ozeliurs.com {
 	tls {
 		dns cloudflare {env.CF_API_TOKEN}

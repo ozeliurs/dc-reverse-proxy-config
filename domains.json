@@ -1,42 +1,14 @@
 {
   "domains": {
-    "adakite.ozeliurs.com": {
-      "protocol": "https",
-      "host": "192.168.1.134",
-      "wildcard": true
-    },
-    "granite.ozeliurs.com": {
+    "dacite.ozeliurs.com": {
       "protocol": "https",
       "host": "192.168.1.70",
       "port": 8006
-    },
-    "mc.ozeliurs.com": {
-      "protocol": "https",
-      "host": "192.168.1.69",
-      "port": 8443
-    },
-    "obsidian.ozeliurs.com": {
-      "protocol": "http",
-      "host": "192.168.1.126"
-    },
-    "weakspotter.ozeliurs.com": {
-      "protocol": "https",
-      "host": "192.168.1.143",
-      "wildcard": true
     },
     "enee.mpve.ozeliurs.com": {
       "protocol": "https",
       "host": "192.168.1.172",
       "port": 8006
-    },
-    "coder.ozeliurs.com": {
-      "protocol": "http",
-      "host": "192.168.1.11"
-    },
-    "bugsink.ozeliurs.com": {
-      "protocol": "http",
-      "host": "192.168.1.20",
-      "port": 8000
     }
   }
 }

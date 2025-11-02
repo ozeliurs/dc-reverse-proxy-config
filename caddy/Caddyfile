@@ -9,68 +9,12 @@
 	admin :2019
 }
 
-adakite.ozeliurs.com, *.adakite.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.134 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}
-
-granite.ozeliurs.com {
+dacite.ozeliurs.com {
 	tls {
 		dns cloudflare {env.CF_API_TOKEN}
 		resolvers 1.1.1.1
 	}
 	reverse_proxy https://192.168.1.70:8006 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}
-
-mc.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.69:8443 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
-}
-
-obsidian.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy http://192.168.1.126 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-	}
-}
-
-weakspotter.ozeliurs.com, *.weakspotter.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy https://192.168.1.143 {
 		header_up Host {host}
 		header_up X-Real-IP {remote}
 
@@ -92,27 +36,5 @@ enee.mpve.ozeliurs.com {
 		transport http {
 			tls_insecure_skip_verify
 		}
-	}
-}
-
-coder.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy http://192.168.1.11 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
-	}
-}
-
-bugsink.ozeliurs.com {
-	tls {
-		dns cloudflare {env.CF_API_TOKEN}
-		resolvers 1.1.1.1
-	}
-	reverse_proxy http://192.168.1.20:8000 {
-		header_up Host {host}
-		header_up X-Real-IP {remote}
 	}
 }
